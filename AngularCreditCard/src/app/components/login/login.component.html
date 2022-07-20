@@ -1,0 +1,27 @@
+<div class="form-container mat-elevation-z5">
+    <h3>Welcome to</h3>
+    <h1>Credit Card Approval</h1>
+    <form [formGroup] = "loginForm" >
+        <mat-form-field>
+            <input matInput placeholder="Email" formControlName="email" type="email"/> 
+            <mat-error *ngIf="email?.errors?.['required']">
+                Please enter a correct email format
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Password" formControlName="password" type="password"/>           
+            <mat-error *ngIf="password?.errors?.['required']">
+                Password is required
+            </mat-error>
+        </mat-form-field>
+        <div class="center margin-top">
+            <button mat-raised-button color="primary" (click)="submit()" type="submit" >
+                Login
+            </button>
+        </div>       
+        <span class="center margin-top">New to our platform?
+            <a mat-raised class="signup" routerLink="/signup"> Join Us!</a>
+        </span>
+    </form>
+    
+</div>

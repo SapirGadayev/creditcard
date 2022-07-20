@@ -1,0 +1,52 @@
+<base href="/">
+<style>
+  tr,
+  th {
+    padding: 0px;
+    border: 1px white;
+  }
+
+  .mainbutton {
+    text-align: left;
+    font-size: 22px;
+  }
+</style>
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav-content>
+    <mat-toolbar color="primary" *ngIf="isLoggedIn$ | async as isLoggedIn">
+      <th>
+        <button mat-button [routerLink]="['/check']" routerLinkActive="active" >
+          <tr role="heading">Approval</tr>
+          <tr>
+            <mat-icon>check_circle_outline</mat-icon>
+          </tr>
+        </button>
+        <button mat-button routerLink="/history" routerLinkActive="active">
+          <tr role="heading">History</tr>
+          <tr>          
+            <mat-icon>contact_phone</mat-icon>
+          </tr>
+        </button>
+      </th>
+
+      <button style="margin-left: 20px;" class="mainbutton" mat-button routerLink="home" routerLinkActive="active">Card Credit Approval</button>
+     <ng-container *ngIf="authService.currentUser$ | async as user">
+      <button mat-button [matMenuTriggerFor]="userMenu" *ngIf="isLoggedIn">
+        <mat-icon>account_circle</mat-icon>
+        {{user.displayName}}
+        <mat-icon>expand_more</mat-icon>
+      </button>
+     </ng-container>
+
+    </mat-toolbar>
+    <!-- Add Content Here -->
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
+<div class="content">
+  <router-outlet></router-outlet>
+</div>
+
+<mat-menu #userMenu="matMenu">
+  <button mat-menu-item routerLink="/login" (click)="logoutnav()">Log Out</button>
+</mat-menu>

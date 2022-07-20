@@ -1,0 +1,167 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-4 mt-5">
+            <div class="card border-0 shadow p-3">
+                <div class="form-floating mb-3 text-center">
+                    <h5 class="text-center text-warning">Customer Details</h5>
+                    <h6 class="text-center">Please fill all fields</h6>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="text" maxlength="9" minlength="9" class="form-control required-field" id="customer_id" name="customer_id"
+                        [(ngModel)]="customer_id">
+                    <label for="customer_id"><span class="required">*</span>ID</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="fullname" name="fullname" [(ngModel)]="full_name">
+                    <label for="fullname"><span class="required">*</span>Full name</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="email" class="form-control" id="email" name="email" [(ngModel)]="email">
+                    <label for="email">Email address</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="text" maxlength="10" minlength="10" class="form-control" id="mobile" name="mobile" [(ngModel)]="mobile">
+                    <label for="mobile">Mobile</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <label for="gender" style="color: gray;font-size: smaller; padding-right: 2px;"><span class="required">*</span>Gender</label>
+                    <mat-radio-group class="form-control" id="gender" name="gender" [(ngModel)]="gender">
+                        <mat-radio-button style="font-size: smaller;" value="F">Female</mat-radio-button>
+                        <mat-radio-button style="font-size: smaller;" value="M">Male</mat-radio-button>
+                    </mat-radio-group>
+                </div>
+                <div class="form-floating mb-3 form-control">
+                        <label for="birthdate"  style="color: gray;font-size: smaller; font-weight: 400; padding-right: 2px; padding-bottom: 5px;">Birth
+                            day</label>
+                        <input [ngModel]="birthdate | date:'yyyy-MM-dd'" (ngModelChange)="onChangebirth($event)" type="date" name="birthdate"/>
+                </div>
+                <div class="form-floating mb-3 form-control">
+                    <label for="employdate"  style="color: gray;font-size: smaller; font-weight: 400; padding-right: 2px; padding-bottom: 5px;">Employed day</label>
+                    <input [ngModel]="employdate | date:'yyyy-MM-dd'" (ngModelChange)="onChangeemploy($event)" type="date" name="employdate"/>
+               </div>
+                <div class="form-floating mb-3 form-control">
+                    <div fxLayout="row wrap">
+                        <mat-checkbox style="font-size: smaller; position:relative ; " id="own_car" name="own_car" [(ngModel)]="own_car"
+                            class="example-margin ">Own a car</mat-checkbox>
+                    </div>
+                    <div fxLayout="row wrap">
+                        <mat-checkbox style="font-size: smaller;position: relative ;left: 7px;;" id="own_realty" name="own_realty"
+                            [(ngModel)]="own_realty" class="example-margin ">Own a realty</mat-checkbox>
+                    </div>
+                    <div fxLayout="row wrap">
+                        <mat-checkbox style="font-size: smaller;position: relative ;left: 9px" id="mobil" name="mobil"
+                            [(ngModel)]="mobil" class="example-margin ">Has a mobile</mat-checkbox>
+                    </div>
+                    <div fxLayout="row wrap">
+                        <mat-checkbox style="font-size: smaller;position: relative ;left: 23.5px" id="work_phone" name="work_phone"
+                            [(ngModel)]="work_phone" class="example-margin ">Has a work phone</mat-checkbox>
+                    </div>
+                    <div fxLayout="row wrap">
+                        <mat-checkbox style="font-size: smaller;position: relative ;left: 7.5px" id="flag_phone" name="flag_phone"
+                            [(ngModel)]="flag_phone" class="example-margin ">Has a phone</mat-checkbox>
+                    </div>
+                    <div fxLayout="row wrap">
+                        <mat-checkbox style="font-size: smaller;position: relative ;left: 8.5px" id="flag_email" name="flag_email"
+                            [(ngModel)]="flag_email" class="example-margin ">Has an email</mat-checkbox>
+                    </div>
+                </div>
+                <div class="form-floating mb-3 form-control">
+                    <div>
+                        <label class="required">*</label>
+                        <select style="font-size: smaller;width:170px;" matNativeControl id="cnt_children" name="cnt_children"
+                            [(ngModel)]="cnt_children">
+                            <option disabled selected="selected" Value="choose">Number of children</option>
+                            <option Value="No children">No children</option>
+                            <option Value="1 children">1 children</option>
+                            <option Value="2+ children">2 or more</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="required">*</label>
+                        <select style="font-size: smaller;width:170px;" matNativeControl id="education_type" name="education_type"
+                            [(ngModel)]="education_type">
+                            <option disabled selected="selected" Value="choose">Education</option>
+                            <option Value="Lower secondary">Lower secondary</option>
+                            <option Value="Secondary / secondary special">Secondary</option>
+                            <option Value="Secondary / secondary special">Secondary special</option>
+                            <option Value="Incomplete higher">Incomplete higher</option>
+                            <option Value="Higher education">Higher education</option>
+                            <option Value="Academic degree">Academic degree</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="required">*</label>
+                        <select style="font-size: smaller;width:170px;" matNativeControl id="housing_type" name="housing_type"
+                            [(ngModel)]="housing_type">
+                            <option disabled selected="selected" Value="choose">Type of house</option>
+                            <option Value="House / apartment">House</option>
+                            <option Value="House / apartment">Apartment</option>
+                            <option Value="Municipal apartment">Municipal apartment</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="required">*</label>
+                        <select style="font-size: smaller;width:170px;" matNativeControl id="family_status" name="family_status"
+                            [(ngModel)]="family_status">
+                            <option disabled selected="selected" Value="choose">Family status</option>
+                            <option Value="Single / not married">Single</option>
+                            <option Value="Single / not married">Not married</option>
+                            <option Value="Married">Married</option>
+                            <option Value="Civil marriage">Civil marriage</option>
+                            <option Value="Separated">Separated</option>
+                            <option Value="Widow">Widow</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="required">*</label>
+                        <select style="font-size: smaller;width:170px;" matNativeControl id="job" name="job"
+                            [(ngModel)]="job">
+                            <option disabled selected="selected" Value="choose">Job type</option>
+                            <option Value="Accountants">Accountants</option>
+                            <option Value="Cleaning staff">Cleaning staff</option>
+                            <option Value="Cooking staff">Cooking staff</option>
+                            <option Value="Core staff">Core staff</option>
+                            <option Value="Drivers">Drivers</option>
+                            <option Value="High skill tech staff">High skill tech staff</option>
+                            <option Value="HR staff">HR staff</option>
+                            <option Value="IT staff">IT staff</option>
+                            <option Value="Laborers">Laborers</option>
+                            <option Value="Low-skill Laborers">Low-skill Laborers</option>
+                            <option Value="Managers">Managers</option>
+                            <option Value="Medicine staff">Medicine staff</option>
+                            <option Value="Private service staff">Private service staff</option>
+                            <option Value="Realty agents">Realty agents</option>
+                            <option Value="Sales staff">Sales staff</option>
+                            <option Value="Secretaries">Secretaries</option>
+                            <option Value="Security staff">Security staff</option>
+                            <option Value="Waiters/barmen staff">Waiters/barmen staff</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="required">*</label>
+                        <select style="font-size: smaller; width:170px;" matNativeControl id="status" name="status"
+                            [(ngModel)]="status">
+                            <option disabled selected="selected" Value="choose">Loan status</option>
+                            <option Value="0">Overdue or bad debts</option>
+                            <option Value="C">There is without overdue</option>
+                            <option Value="X">There isn't</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-floating mb-3">
+                    <input style=font-size:small min="0" type="number" class="form-control" id="income_total"
+                        name="income_total" [(ngModel)]="income_total" value="0">
+                    <label style="font-size:small" for="income_total">Total income</label>
+                </div>
+
+
+                <div>
+                    <button type="button" class="btn btn-outline-success" (click)="addCustomer()">Check</button>
+                    
+                </div>
+                <div>
+                    {{customerObj.target}}
+                </div>
+            </div>
+
+        </div>
